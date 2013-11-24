@@ -1,4 +1,4 @@
-package models.postgres
+package models
 
 import play.api.Play.current
 import play.api.db.{DB => PlayDB}
@@ -10,5 +10,4 @@ class Base {
   def database = Database.forDataSource(PlayDB.getDataSource())
 }
 
-object Base extends Base {
-}
+object Base extends Base

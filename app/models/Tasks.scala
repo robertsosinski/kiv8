@@ -1,4 +1,4 @@
-package models.postgres
+package models
 
 import scala.slick.driver.PostgresDriver.simple._
 
@@ -17,18 +17,18 @@ class Tasks(tag: Tag) extends Table[Task](tag, "tasks") {
 }
 
 object Tasks extends Base {
-  val self = TableQuery[Tasks]
+  val table = TableQuery[Tasks]
 
   def all = database.withSession { implicit session =>
-    for(task <- self) yield task
+    table.list
   }
 
   def byId(id: Long) = database.withSession { implicit session =>
-    all.filter { task => task.id === id }.first
+    table.filter { task => task.id === id }.first
   }
 
   def forPerson(id: Long) = database.withSession { implicit session =>
-    for(task <- all if task.person_id === id) yield task
+    for(task <- table if task.person_id === id) yield task
   }
 
   def forPersonById(person_id: Long, id: Long) = database.withSession { implicit session =>

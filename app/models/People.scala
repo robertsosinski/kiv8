@@ -1,4 +1,4 @@
-package models.postgres
+package models
 
 import scala.slick.driver.PostgresDriver.simple._
 

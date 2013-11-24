@@ -1,0 +1,16 @@
+@(tasks: List[Task])
+
+<h1>Tasks!</h1>
+
+<table>
+    <tr>
+        <th>id</th>
+        <th>name</th>
+    </tr>
+    @for(task <- tasks) {
+        <tr>
+            <td>@task.id</td>
+            <td>@task.name.getOrElse("<NONE>")</td>
+        </tr>
+    }
+</table>
