@@ -2,10 +2,10 @@ package models
 
 import scala.slick.driver.PostgresDriver.simple._
 
-case class Group(id: Option[Long], name: String)
+case class Group(id: Long, name: String)
 
 class Groups(tag: Tag) extends Table[Group](tag, "groups") {
-  def id   = column[Option[Long]]("id", O.PrimaryKey, O.AutoInc)
+  def id   = column[Long]("id", O.PrimaryKey, O.AutoInc)
   def name = column[String]("name")
 
   def * = (id, name) <> (Group.tupled, Group.unapply)
