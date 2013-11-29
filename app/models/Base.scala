@@ -5,9 +5,6 @@ import play.api.db.{DB => PlayDB}
 
 import scala.slick.driver.PostgresDriver.simple._
 
-class Base {
-  def db = PlayDB
+trait Base {
   def database = Database.forDataSource(PlayDB.getDataSource())
 }
-
-object Base extends Base

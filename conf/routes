@@ -3,10 +3,10 @@
 # ~~~~
 
 # Home page
-GET         /                       controllers.Application.index
+GET        /                    controllers.ApplicationController.index
 
-GET         /tasks                  controllers.TasksController.index
-GET         /tasks/:id              controllers.TasksController.get(id: Long)
+GET        /:group_name/tasks               controllers.TasksController.list(group_name: String)
+GET        /:group_name/tasks/:id           controllers.TasksController.show(group_name: String, id: Long)
 
 # Map static resources from the /public folder to the /assets URL path
-GET         /assets/*file           controllers.Assets.at(path="/public", file)
+GET        /assets/*file        controllers.Assets.at(path="/public", file)
